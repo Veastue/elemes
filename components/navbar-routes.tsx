@@ -6,6 +6,7 @@ import React from 'react'
 import { Button } from './ui/button'
 import { Ghost, LogOut } from 'lucide-react'
 import Link from 'next/link'
+import { DarkModeToggle } from './dark-mode-toggle'
 
 const NavbarRoutes = () => {
 
@@ -34,6 +35,7 @@ const NavbarRoutes = () => {
         <UserButton
           afterSignOutUrl='/'
         />
+        <DarkModeToggle />
     </div>
   )
 }
