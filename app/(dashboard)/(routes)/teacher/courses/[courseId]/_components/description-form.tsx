@@ -57,7 +57,7 @@ const DescriptionForm = ({initialData, courseId}: DescriptionFormProps) => {
                 title: 'Sucess',
                 description: 'Course Updated'
             })
-            toggleEdit;
+            toggleEdit();
             router.refresh();
         } catch(error) {
             toast({

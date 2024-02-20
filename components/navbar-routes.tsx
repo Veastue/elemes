@@ -17,7 +17,7 @@ const NavbarRoutes = () => {
   const isPlayerPage = pathname?.includes('/chapter');
 
   return (
-    <div className='flex gap-x-2 ml-auto'>
+    <div className='flex gap-x-2 ml-auto items-center'>
       {isTeacherPage || isPlayerPage ? (
         <Link href={'/'}>
           <Button size='sm' variant='ghost'>
