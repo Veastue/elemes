@@ -7,8 +7,9 @@ const Logo = () => {
         height={130}
         width={130}
         alt='logo'
-        src='/logo2.png'
+        src='/stlogo.png'
         priority
+        className='object-cover object-center w-full h-full mix-blend-darken'
     />
   )
 }

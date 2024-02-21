@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'naturebeauty';
+  src: url('/fonts/NatureBeauty.ttf') format('truetype'),
+}
+
+.font-naturebeauty {
+  font-family: 'naturebeauty', sans-serif;
+}
 
 html,
 body,

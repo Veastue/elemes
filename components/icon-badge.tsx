@@ -4,11 +4,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const backgroundVariants = cva(
-    "rounded-full flex items-center justify-center",
+    "rounded-full flex items-center justify-center dark:border",
     {
         variants:{
             variant:{
-                default: "bg-sky-100",
+                default: "bg-rose-100 dark:bg-transparent",
                 sucess: 'bg-emerald-100'
             },
             size:{
@@ -28,7 +28,7 @@ const iconVariants = cva(
     {
         variants:{
             variant:{
-                default: "text-sky-700",
+                default: "text-rose-700",
                 sucess: 'text-emerald-700'
             },
             size: {
