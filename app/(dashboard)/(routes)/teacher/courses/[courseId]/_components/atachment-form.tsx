@@ -92,7 +92,7 @@ const AttahcmentForm = ({initialData, courseId}: AttahcmentFormProps) => {
                     </p>
                 )}
                 {initialData.attachments.length > 0 && (
-                    <div className="space-y-2">
+                    <div className="space-y-2 mt-2">
                         {initialData.attachments.map((attachment)=>(
                             <div
                                 key={attachment.id}
@@ -125,7 +125,6 @@ const AttahcmentForm = ({initialData, courseId}: AttahcmentFormProps) => {
                 <FileUpload
                 endpoint='courseAttachment'
                 onChange={(url)=> {
-                    console.log(url)
                     if(url){
                         onSubmit({url: url})
                     }
