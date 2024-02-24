@@ -20,15 +20,20 @@ export const SearchInput = () => {
     const currentCategoryId = searchParams.get("categoryId");
 
     useEffect(() => {
-        const url = qs.stringifyUrl({
-            url: pathname,
-            query: {
-                categoryId: currentCategoryId,
-                title: debounceValue
-            }
-        })
-        router.push(url)
-    }, [debounceValue, currentCategoryId, router, pathname])
+        if (value !== '') { // Check if there is some input value
+            const url = qs.stringifyUrl({
+                url: pathname,
+                query: {
+                    categoryId: currentCategoryId,
+                    title: debounceValue
+                }
+            });
+            router.push(url);
+        } else {
+            router.push('/search')
+        }
+    }, [debounceValue, value, currentCategoryId, router, pathname]);
+    
 
     return (
         <div className="relative">
