@@ -4,7 +4,7 @@ import {db} from "@/lib/db"
 import { auth } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 import { IconBadge } from '@/components/icon-badge';
-import { CircleDollarSign, File, LayoutDashboard, ListChecks } from 'lucide-react';
+import { ArrowLeft, CircleDollarSign, File, LayoutDashboard, ListChecks } from 'lucide-react';
 import TitleForm from './_components/title-form';
 import DescriptionForm from './_components/description-form';
 import ImageForm from './_components/image-form';
@@ -14,6 +14,8 @@ import AttahcmentForm from './_components/atachment-form';
 import ChaptersForm from './_components/chapter-form';
 import { Banner } from '@/components/banner';
 import { Actions } from './_components/actions';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const CourseIdPage = async({
     params
@@ -80,7 +82,14 @@ const CourseIdPage = async({
           label = 'This course is not published. It will not be visible to the students.'
         />
       )}
-      <div className='p-6'>
+      <div className='p-6 flex flex-col mb-2'>
+        <Link 
+          href='/teacher/courses' 
+          className='flex items-center text-sm hover:opacity-75 transition mb-6'            
+        >
+          <ArrowLeft className='h-4 w-4 mr-2'/>
+          Go back to Courses Page
+        </Link>
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-y-2">
             <h1 className='text-2xl font-medium'>
