@@ -4,6 +4,10 @@ import { auth } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 import React from 'react'
 import VideoPlayer from './_components/video-player';
+import CourseEnrollButton from './_components/course-enroll-button';
+import { Separator } from '@/components/ui/separator';
+import { Preview } from '@/components/preview';
+import { File } from 'lucide-react';
 
 const ChapterIdPage = async({
     params
@@ -19,7 +23,7 @@ const ChapterIdPage = async({
         chapter,
         course,
         muxData,
-        attachment,
+        attachments,
         nextChapter,
         userProgress,
         purchase
@@ -32,6 +36,7 @@ const ChapterIdPage = async({
     const isLocked = !chapter?.isFree && !purchase;
     const completeOnEnd = !!purchase && !userProgress?.isCompleted;
 
+    console.log(purchase)
     
     return (
     <div>
@@ -61,6 +66,49 @@ const ChapterIdPage = async({
             chapterVideoUrl={chapter?.videoUrl!}
           />
           {/* TODO Another Video Player for none MuX */}
+        </div>
+        <div>
+          <div className="p-4 flex flex-col md:flex-row items-center justify-between">
+            <h2 className='text-xl font-semibold mb-2 uppercase'>
+              {chapter?.title}
+            </h2>
+            {purchase ? (
+              //// ToDo add progress Button
+              <div>
+
+              </div>
+            ) : (
+              <CourseEnrollButton 
+                courseId={params.courseId}
+                price={course?.price!}
+              />
+            )}
+          </div>
+          <Separator />
+          <div>
+            <Preview value={chapter?.description!}/>
+          </div>
+          {!!attachments?.length && (
+            <>
+              <Separator />
+              <div className="p-4 flex flex-col gap-2">
+                <h2 className="text-lg font-semibold mb-2 text-center sm:text-start">Attachment</h2>
+                {attachments.map((attachment) => (
+                  <a 
+                    key={attachment.id}
+                    href={attachment.url}
+                    target='_blank'
+                    className=' text-sm flex items-center p-3 w-full bg-rose-100/50 border dark:bg-rose-500 text-rose-700 dark:text-white rounded-md hover:underline shadow-sm'
+                    >
+                      <File size={16} className='mr-2'/>
+                    <p className='line-clamp-1'>
+                      {attachment.name}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -62,8 +62,8 @@ const VideoPlayer = ({
                 <MuxPlayer 
                     title={title}
                     className={cn(
-                        ' z-[100]',
-                        isReady && 'hidden'
+                        ' z-[100] hidden',
+                        !isReady && 'hidden'
                     )}
                     onCanPlay={() => setIsReady(true)}
                     onEnded={() => {}}
@@ -73,12 +73,12 @@ const VideoPlayer = ({
             )}
             {/* if Mux is not premium you may activate this for now */}
             {!isLocked && (
-                <div className="sm:w-screen md:w-full h-full">
+                <div className="sm:w-screen md:w-full flex items-center justify-center md:h-auto">
                     <ReactPlayer
                         url={chapterVideoUrl}
-                        width='100%'
+                        width='100'
+                        height='100'
                         controls={true}
-                        className='w-full'
                     />
                 </div>
             )}
