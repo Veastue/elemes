@@ -8,6 +8,7 @@ import CourseEnrollButton from './_components/course-enroll-button';
 import { Separator } from '@/components/ui/separator';
 import { Preview } from '@/components/preview';
 import { File } from 'lucide-react';
+import CourseProgressButton from './_components/course-progress-button';
 
 const ChapterIdPage = async({
     params
@@ -36,7 +37,7 @@ const ChapterIdPage = async({
     const isLocked = !chapter?.isFree && !purchase;
     const completeOnEnd = !!purchase && !userProgress?.isCompleted;
 
-    console.log(purchase)
+    //console.log(purchase)
     
     return (
     <div>
@@ -74,9 +75,12 @@ const ChapterIdPage = async({
             </h2>
             {purchase ? (
               //// ToDo add progress Button
-              <div>
-
-              </div>
+              <CourseProgressButton 
+                chapterId={params.chapterId}
+                courseId={params.courseId}
+                nextChapterId={nextChapter?.id}
+                isCompleted={!!userProgress?.isCompleted}
+              />
             ) : (
               <CourseEnrollButton 
                 courseId={params.courseId}
