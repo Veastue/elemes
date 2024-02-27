@@ -83,8 +83,8 @@ export async function POST(
             customer: stripeCustomer.stripeCustomerId,
             line_items,
             mode: 'payment',
-            success_url: `${process.env.Next_PUBLIC_APP_URL}/courses/${course.id}?sucess=1`,
-            cancel_url: `${process.env.Next_PUBLIC_APP_URL}/courses/${course.id}?cancel=1`,
+            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${course.id}?sucess=1`,
+            cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${course.id}?cancel=1`,
             //throws a notif regarding the transaction sucess and information about what data went through
             metadata: {
                 courseId: course.id,
