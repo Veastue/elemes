@@ -36,18 +36,18 @@ export default async function Dashboard() {
     <div className="p-6">
       <div className="w-full  flex justify-center md:justify-start items-center mb-5">
         <p className="text-xl ">
-        {greeting}, it's currently {currentHour}:{currentMinutes}
+        {greeting}, it&apos;s currently {currentHour}:{currentMinutes}
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <InfoCard
           icon={Clock}
-          label='In progress'
+          label="In Progress"
           numberOfItems={courseInProgress.length}
         />
         <InfoCard
           icon={CheckCircle}
-          label='Completed'
+          label="Completed"
           variant="success"
           numberOfItems={completedCourse.length}
         />
