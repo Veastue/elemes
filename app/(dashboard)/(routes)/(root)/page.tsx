@@ -34,12 +34,9 @@ export default async function Dashboard() {
 
   return (
     <div className="p-6">
-      <div className="w-full  flex items-center mb-5">
-        <p className="font-naturebeauty text-xl text-gray-500 dark:text-white">
-          {greeting}
-        </p>
-        <p className="text-xl">
-        , it's currently {currentHour}:{currentMinutes}.
+      <div className="w-full  flex justify-center md:justify-start items-center mb-5">
+        <p className="text-xl ">
+        {greeting}, it's currently {currentHour}:{currentMinutes}
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
