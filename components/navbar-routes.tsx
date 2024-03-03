@@ -42,7 +42,7 @@ const NavbarRoutes = () => {
         </Link>
       ): null}
         <UserButton
-          afterSignOutUrl='/'
+          afterSignOutUrl='/site'
         />
         <DarkModeToggle />
     </div>
